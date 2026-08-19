@@ -1,0 +1,4 @@
+"use client";
+import { useState } from "react";
+import { faqs, PageHero, Shell } from "../portal-ui";
+export default function Page(){const [open,setOpen]=useState(0);return <Shell><PageHero eyebrow="RESPOSTAS DIRETAS" title="Perguntas frequentes" text="Orientações rápidas para os serviços mais procurados pelos moradores."/><section className="section"><div className="wrap faq-page"><div className="accordion">{faqs.map((f,i)=><article className={open===i?"active":""} key={f[0]}><button onClick={()=>setOpen(open===i?-1:i)}><span>{f[0]}</span><b>{open===i?"−":"+"}</b></button><div><p>{f[1]}</p></div></article>)}</div><aside><h2>Não encontrou?</h2><p>Pergunte à BarrinhIA ou entre em contato com a Prefeitura.</p><a className="button" href="tel:+551639439400">Ligar para atendimento</a></aside></div></section></Shell>}
